@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basic Information | Sport Club</title>
+    <link type="text/css" rel="stylesheet" href="../../style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nova+Mono|Raleway|Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+</head>
+
+<body>
+    <header id="nav">
+        <a id="logo" href="../../index.html">Sport Club</a>
+        <div id="nav-options">
+            <a class="nav-option" href="login.html">Login</a>
+            <a class="nav-option" href="help.html">Help?</a>
+        </div>
+    </header>
+    <div id="container">
+        <form action="step_2.html" method="post">
+            <h1 class="title">Step 1</h1>
+            <fieldset>
+                <h2 class="title">Basic Information</h2>
+
+                <div class="w-40 input-group">
+                    <label for="username" hidden>Username</label>
+                    <input id="username" class="field" type="text" name="fname" placeholder="Username">
+                </div>
+                <div class="w-60 input-group">
+                    <label for="password" hidden>Password</label>
+                    <input id="password" class="field" type="password" name="password" placeholder="Choose Password">
+                </div>
+
+                <div class="w-50 input-group">
+                    <label for="fname" hidden>First Name</label>
+                    <input id="fname" class="field" type="text" name="fname" placeholder="First Name">
+                </div>
+                <div class="w-50 input-group">
+                    <label for="lname" hidden>last Name</label>
+                    <input id="lname" class="field" type="text" name="lname" placeholder="Last Name">
+                </div>
+
+                <div class="w-60 input-group">
+                    <label for="email" hidden>Email</label>
+                    <input id="email" class="field" type="text" name="email" placeholder="Email" required>
+                </div>
+                <div class="w-40 input-group">
+                    <label for="phone" hidden>phone</label>
+                    <input id="phone" class="field" type="number" name="phone" placeholder="Phone Number">
+                </div>
+
+                <div class="w-50 input-group">
+                    <h4 class="title fl">Gender:</h4>
+                    <input id="radi_male" type="radio" name="gender" value="male">
+                    <label for="radi_male">Male</label>
+                    <input id="radi_female" type="radio" name="gender" value="female">
+                    <label for="radi_female">Female</label>
+                    <input id="radi_others" type="radio" name="gender" value="other">
+                    <label for="radi_others">Other</label>
+                </div>
+                <div class="w-50 input-group">
+                    <label for="dob" hidden>Date of birth</label>
+                    <input id="dob" class="field" type="date" name="dob" title="Date of birth">
+                </div>
+                <div class="w-100 input-group">
+                    <label class="title" for="id">ID Proof</label>
+                    <input id="id" class="field" type="file" name="id" accept="image/*">
+                </div>
+            </fieldset>
+            <fieldset>
+                <h2 class="title"><label for="s_address">Address</label></h2>
+                <div class="w-70 input-group">
+                    <label for="s_address" hidden></label>
+                    <textarea id="s_address" class="field" name="description" rows="4" placeholder="Stress Address"></textarea>
+                </div>
+                <div class="w-30 input-group">
+                    <label for="pin_code" hidden>Pin Code</label>
+                    <input id="pin_code" class="field" type="number" name="pin_code" placeholder="Pin Code">
+                </div>
+                <div class="w-30 input-group">
+                    <label for="city" hidden>city</label>
+                    <input id="city" class="field" type="text" name="city" placeholder="City">
+                </div>
+            </fieldset>
+            <div class="action">
+                <input id="accept" class="field" type="checkbox" name="accept" value="on">
+                <label for="accept" class="title">Agree with <a href="#">Terms and conditions</a></label>
+                <button class="fl" type="reset" value="reset">
+                    <img src="../../img/cross.png" alt="Clear"> Clear
+                </button>
+                <button class="main" type="submit" value="submit">Next</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        Copyright | 2018
+    </footer>
+	<script src="../../js/master.js"></script>
+</body>
+
+</html>

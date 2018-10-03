@@ -1,0 +1,699 @@
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(241, 241, 241, 0.82);
+    background: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer {
+    padding: 10px 0px;
+    color: #515151;
+    text-align: center;
+    background-color: #CECECE;
+}
+
+input.field,
+select.field {
+    font-family: 'Raleway', sans-serif;
+    outline: none;
+    border: 2px solid #B5ACFF;
+    background-color: #f1f1f1;
+}
+
+input.field:focus,
+select.field:focus {
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .3);
+    border: 2px solid #705FFF;
+    background: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Roboto Mono', monospace;
+    color: #7C6CFF;
+}
+
+a:hover {
+    color: #5440FF !important;
+}
+
+.hidden {
+    display: none;
+}
+
+.title {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#container {
+    padding: 65px 10% 10px;
+    min-height: 600px;
+    background-color: rgba(241, 241, 241, 0.82);
+}
+
+#nav {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: 0;
+    max-height: 40px;
+    padding: 5px 20px;
+    /*	color: #6B6972;*/
+    /*	border-bottom: 1px solid black;*/
+}
+
+.nav-colored {
+	background-color: rgba(241,241,241,0.95) !important;
+	transition: background-color 200ms linear;
+	transform: translateZ(40px);
+}
+
+.nav-transparent {
+	background-color: none !important;
+	transition: background-color 200ms linear;
+}
+
+#logo {
+    color: #596199;
+    height: 40px;
+    font-size: 24pt;
+    line-height: 40px;
+    text-decoration: none;
+    float: left;
+    font-family: 'Nova Mono', monospace;
+}
+
+#search-bar {
+    height: 40px;
+    width: 540px;
+    margin: 1px 48px;
+    margin: 0px 50px;
+    float: left;
+}
+
+#search-bar input.field {
+    height: 36px;
+    width: 500px;
+    border-radius: 36px;
+    line-height: 34pt;
+    padding: 0px 18px;
+    font-size: 12pt;
+}
+
+#nav-options {
+    float: right;
+    height: 40px;
+}
+
+#nav-options .nav-option {
+    height: 24px;
+    min-width: 80px;
+    font-size: 14pt;
+    padding: 8px 10px;
+    line-height: 40px;
+    color: #747476;
+}
+
+.slider {
+    height: 400px;
+    background-image: url("../img/banner.jpg");
+    background-size: cover;
+}
+
+#featured {
+    margin: 0px auto;
+    display: table;
+}
+
+#featured .thumbnail {
+    text-align: center;
+    width: 300px;
+    float: left;
+    margin: 10px 20px;
+}
+
+#featured .thumbnail img {
+    height: 100px;
+    width: 100px;
+}
+
+#featured .thumbnail .title {
+    font-size: 18pt;
+    margin: 8px 0px;
+}
+
+
+/* STEP 2 Style*/
+
+#ch_sport {
+    background-image: url(../img/ch_sport.png);
+}
+
+#ch_gym {
+    background-image: url(../img/ch_gym.png);
+}
+
+#ch_sport_gym {
+    background-image: url(../img/ch_sport_gym.png);
+}
+
+.ch {
+    width: 800px;
+    height: 180px;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.7);
+    border-radius: 240px 120px 240px 120px / 120px 240px 120px 240px;
+    margin: 20px 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform-style: preserve-3d;
+}
+
+.ch .text {
+    padding: 40px 50px;
+    transform: translateZ(40px);
+   	color: #CBC6E8;
+}
+
+.ch .tile-background {
+    height: 180px;
+ 	background-color: rgba(15, 15, 15, 0.53);
+    border-radius: 240px 120px 240px 120px / 120px 240px 120px 240px;
+}
+
+.ch:hover {
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.ch:hover .tile-background {
+    background-color: rgba(15, 15, 15, 0.24);
+}
+
+.ch:hover .text {
+    color: #AA94E3 !important;
+}
+
+.ch.selected {
+    animation: select_tile 400ms;
+    transform: scale3d(1.05, 1.05, 1.05) !important;
+    border-radius: 50px !important;
+}
+
+.tile-background.selected {
+ 	animation: select_bk 400ms;
+	background-color: rgba(15, 15, 15, 0.24) !important;
+    border-radius: 50px !important;
+}
+
+.ch.deselected {
+    animation: deselect_tile 400ms;
+    transform: scale3d(1.0, 1.0, 1.0);
+    border-radius: 240px 120px 240px 120px / 120px 240px 120px 240px;
+}
+
+.tile-background.deselected {
+ 	animation: deselect_bk 400ms;
+	background-color: rgba(15, 15, 15, 0.53);
+    border-radius: 240px 120px 240px 120px / 120px 240px 120px 240px;
+}
+
+@keyframes select_tile {
+    0% {
+        transform: scale3d(1.0, 1.0, 1.0);
+        border-radius: 240px 120px 240px 120px / 120px 240px 120px 240px;
+    }
+    100% {
+        transform: scale3d(1.05, 1.05, 1.05);
+        border-radius: 50px;
+    }
+}
+@keyframes deselect_tile {
+    0% {
+        transform: scale3d(1.05, 1.05, 1.05);
+        border-radius: 50px;
+    }
+	100% {
+        transform: scale3d(1.0, 1.0, 1.0);
+        border-radius: 240px 120px 240px 120px / 120px 240px 120px 240px;
+    }
+}
+
+@keyframes select_bk {
+    0% {
+ 		background-color: rgba(15, 15, 15, 0.53);
+        border-radius: 130px 60px 130px 60px / 60px 130px 60px 130px;
+    }
+    100% {
+		background-color: rgba(15, 15, 15, 0.24);
+        border-radius: 50px;
+    }
+}
+@keyframes deselect_bk {
+    0% {
+		background-color: rgba(15, 15, 15, 0.24);
+        border-radius: 50px;
+    }
+	100% {
+		background-color: rgba(15, 15, 15, 0.53);
+        border-radius: 130px 60px 130px 60px / 60px 130px 60px 130px;
+    }
+}
+
+/* Step 3 */
+
+.ms_tile {
+	border: 2px solid rgba(94,0,249,0.50);
+	border-radius: 50px 100px 20px 50px;
+	background-color: rgba(241,241,241,0.45);
+	transform-style: preserve-3d;
+}
+
+.ms_tile .thumbnail {
+	width: 300px;
+	height: 200px;
+	float: left;
+	padding: 1em;
+	transform: translateZ(10px);
+	border-radius: 50px;
+}
+
+.ms_tile .content {
+	display: inline-block;
+	transform: translateZ(10px);
+	width: 500px;
+}
+
+.ms_tile .content>.title{
+	color: #44405B;
+	font-size: 18pt;
+	margin: 10px auto 8px auto;
+}
+
+/* FORM STYLE */
+
+form>.title {
+    color: #4D4967;
+}
+
+form {
+    border-radius: 40px;
+    padding: 10px;
+    width: 886px;
+}
+
+fieldset {
+    margin: 0px 10px 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+}
+
+fieldset>.title {
+    color: #6C6690;
+    margin: 10px;
+}
+
+textarea {
+    height: auto !important;
+    resize: none;
+}
+
+select {
+    height: 50px !important;
+}
+
+.field {
+    border-radius: 10px;
+    outline: none;
+    height: 30px;
+    padding: 8px;
+    margin: 0px 6px;
+    font-size: 16pt;
+}
+
+.input-group>.title {
+    margin: 0px 20px;
+    height: 40px;
+    line-height: 50px;
+    width: auto;
+    font-weight: bolder;
+    color: #5F5A7F;
+}
+
+.input-group {
+    float: left;
+    margin: 5px 6px 10px 6px;
+}
+
+.input-group .field {
+    float: left;
+}
+
+.input-group>input[type="radio"],
+[type="checkbox"] {
+    padding: 8px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+
+/* Siblings selector */
+
+.input-group input[type="radio"],
+[type="checkbox"]~label {
+    line-height: 50px;
+    height: 40px;
+}
+
+.action {
+    padding: 10px;
+    text-align: right;
+    line-height: 40px;
+}
+
+.action>button {
+    height: 42px;
+    min-width: 88px;
+    font-size: 14pt;
+    outline: none;
+    border-radius: 21px;
+    margin: 0px 10px;
+    padding: 5px 10px;
+    background-color: beige;
+    border: 2px solid #596199;
+    color: #596199;
+    box-shadow: 1px 2px 5px rgba(4, 0, 140, 0.50);
+}
+
+.action>button>img {
+    height: 12px;
+    width: 12px;
+}
+
+.action>button.main {
+    background-color: #596199;
+    border: 2px solid #596199;
+    color: whitesmoke;
+}
+
+.action>button:hover {
+    box-shadow: 1px 2px 10px rgba(4, 0, 140, 1);
+}
+
+
+/* FRAMEWORK* */
+
+.my-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.my-1 {
+    margin-top: .25em;
+    margin-bottom: .25em;
+}
+
+.my-2 {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+.my-2 {
+    margin-top: .75em;
+    margin-bottom: .75em;
+}
+
+.my-4 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.mx-0 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.mx-1 {
+    margin-left: .25em;
+    margin-right: .25em;
+}
+
+.mx-2 {
+    margin-left: .5em;
+    margin-right: .5em;
+}
+
+.mx-2 {
+    margin-left: .75em;
+    margin-right: .75em;
+}
+
+.mx-4 {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.py-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.py-1 {
+    padding-top: .25em;
+    padding-bottom: .25em;
+}
+
+.py-2 {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+.py-2 {
+    padding-top: .75em;
+    padding-bottom: .75em;
+}
+
+.py-4 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.px-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.px-1 {
+    padding-left: .25em;
+    padding-right: .25em;
+}
+
+.px-2 {
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
+.px-2 {
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+.px-4 {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.fl {
+    float: left;
+}
+
+.w-100 {
+    width: 800px;
+}
+
+.w-70 {
+    width: 560px;
+}
+
+.w-60 {
+    width: 480px;
+}
+
+.w-50 {
+    width: 400px;
+}
+
+.w-40 {
+    width: 320px;
+}
+
+.w-30 {
+    width: 240px;
+}
+
+.w-20 {
+    width: 160px;
+}
+
+.w-10 {
+    width: 80px;
+}
+
+.w-100>.field {
+    width: inherit;
+}
+
+.w-70>.field {
+    width: 540px;
+}
+
+.w-60>.field {
+    width: 460px;
+}
+
+.w-50>.field {
+    width: 380px;
+}
+
+.w-40>.field {
+    width: 300px;
+}
+
+.w-30>.field {
+    width: 220px;
+}
+
+.w-20>.field {
+    width: 140px;
+}
+
+.w-10>.field {
+    width: 60px;
+}
+<!DOCTYPE html>
+<?PHP
+	$sports = array("sport" => array("badminton" => array("title"=>"Badminton", 
+														  "detail"=>"Large Court, shuttle and racket provided",
+														  "image"=>"ms_badminton.jpg",),
+									 "badminton" => array("title"=>"Football", 
+														  "detail"=>"Large Court, shuttle and racket provided",
+														  "image"=>"ms_badminton.jpg",),
+					"gym" => array("title"=>"Badminton", 
+								 "detail"=>"Large Court, shuttle and racket provided",
+								 "image"=>"ms_badminton.jpg",),
+				   );
+?>
+<html lang="en">
+
+<head>
+    <title>Chooose Service | Sport Club</title>
+    <link type="text/css" rel="stylesheet" href="../../style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nova+Mono|Raleway|Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <header id="nav">
+        <a id="logo" href="../../index.html">Sport Club</a>
+        <div id="nav-options">
+            <a class="nav-option" href="help.html?step=2">Help?</a>
+        </div>
+    </header>
+    <div id="container" style="margin-top: -20px">
+        <div class="membership-list">
+            <form method="put" action="loginn.html">
+                <h1 class="title">Step 3</h1>
+                <fieldset class="ms_tile" data-tilt data-tilt-perspective="3000" data-tilt-scale="1.01">
+					<img class="thumbnail" src="../../img/ms_badminton.jpg" alt="Badminton">
+					<div class="content">
+						<h3 class="title">Badminton</h3>
+						<p><strong>Details:</strong> Large Court, shuttle and racket provided</p>
+						<div class="input-group">
+							<label for="select_ms_badminton" class="title fl">Membership:</label>
+							<select id="select_ms_badminton" class="field" name="ms_badminton">
+								<option value="-" selected>No Membership</option>
+								<option value="monthly">Monthly @ Rs.1000</option>
+								<option value="quarterly">Quarterly @ Rs.2500</option>
+								<option value="half">Semi-annual @ Rs.4800</option>
+								<option value="yearly">Annual @ Rs.8000</option>
+							</select>
+						</div>
+						<div class="input-group">
+							<label for="select_bad_timing" class="title fl">Select timing:</label>
+							<select id="select_bad_timing" class="field" name="ms_badminton">
+								<option value="morning" >6 AM to 11:30 AM</option>
+								<option value="evening" selected>4 PM to 8:30 PM</option>
+							</select>
+						</div>
+					</div>
+                </fieldset>
+				<fieldset class="ms_tile" data-tilt data-tilt-perspective="3000" data-tilt-scale="1.01">
+					<img class="thumbnail" src="../../img/ms_football.jpg" alt="Football">
+					<div class="content">
+						<h3 class="title">Football</h3>
+						<p><strong>Details:</strong> Large Court, Adidas ball will be provided</p>
+						<div class="input-group">
+							<label for="select_ms_football" class="title fl">Membership:</label>
+							<select id="select_ms_football" class="field" name="ms_badminton">
+								<option value="-" selected>No Membership</option>
+								<option value="monthly">Monthly @ Rs.1000</option>
+								<option value="quarterly">Quarterly @ Rs.2500</option>
+								<option value="half">Semi-annual @ Rs.4800</option>
+								<option value="yearly">Annual @ Rs.8000</option>
+							</select>
+						</div>
+						<div class="input-group">
+							<label for="select_fb_timing" class="title fl">Select timing:</label>
+							<select id="select_fb_timing" class="field" name="ms_badminton">
+								<option value="morning" >6 AM to 11:30 AM</option>
+								<option value="evening" selected>4 PM to 8:30 PM</option>
+							</select>
+						</div>
+					</div>
+                </fieldset>
+				<fieldset class="ms_tile" data-tilt data-tilt-perspective="3000" data-tilt-scale="1.01">
+					<img class="thumbnail" src="../../img/ms_swimming.jpg" alt="Swimming">
+					<div class="content">
+						<h3 class="title">Swimming</h3>
+						<p><strong>Details:</strong> Large Court, Adidas ball will be provided</p>
+						<div class="input-group">
+							<label for="select_ms_swiming" class="title fl">Membership:</label>
+							<select id="select_ms_swiming" class="field" name="ms_badminton">
+								<option value="-" selected>No Membership</option>
+								<option value="monthly">Monthly @ Rs.1000</option>
+								<option value="quarterly">Quarterly @ Rs.2500</option>
+								<option value="half">Semi-annual @ Rs.4800</option>
+								<option value="yearly">Annual @ Rs.8000</option>
+							</select>
+						</div>
+						<div class="input-group">
+							<label for="select_swim_timing" class="title fl">Select timing:</label>
+							<select id="select_swim_timing" class="field" name="ms_badminton">
+								<option value="morning" >6 AM to 11:30 AM</option>
+								<option value="evening" selected>4 PM to 8:30 PM</option>
+							</select>
+						</div>
+					</div>
+                </fieldset>
+            </form>
+        </div>
+        <div id="#cart" style="display: inline-block">
+
+        </div>
+    </div>
+
+    <footer>
+        Copyright | 2018
+    </footer>
+    <script src="../../js/master.js"></script>
+    <script src="../../lib/jquery.min.js"></script>
+    <script src="../../lib/tilt.jquery.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,659 @@
+var staticsite = angular.module('bygapp', ['ngMap'])
+
+// staticsite.controller('ModalInstanceCtrl', function ($scope, $http, $uibModalInstance, package, userInfo) {
+    // console.log('ModalInstanceCtrl')
+    //     // $scope.items = items;
+    //     console.log(package)
+    //     console.log(userInfo)
+    //     $scope.selectedPackage = package
+    //     $scope.isLoading = false
+    //     $scope.disabled = true
+    //     $scope.d = {
+    //         startDate:true
+    //     } 
+    //     $scope.endDateDisabled = false
+    //     if(package.packageType === 'batch'){
+    //         $scope.endDateDisabled = true
+    //     }else{ $scope.endDateDisabled = false }
+    //     $scope.startDateDisabled = false
+
+    //     $scope.selectedPackage.startDateString = new Date().getTime()
+    //     userInfo.name = 'sadiq'
+    //     userInfo.phone = 9500310376
+    //     userInfo.email = 'md.sadiq@byg.co.in'
+    //     userInfo.gender = 'male'
+    //     $scope.userInfo = userInfo
+
+    //     // datepicker
+    //     $scope.format = 'dd-MM-yyyy'
+    //     $scope.dt = new Date();
+    //     $scope.popup1 = { opened: false };
+    //     $scope.popup2 = { opened: false };
+
+
+        //new code
+        // $scope.search = { 'today':false,'week':false,'month':false,'startdateopen': false, 'enddateopen': false, startDate: moment().valueOf(), endDate: moment(new Date()).valueOf() };
+
+        
+        // $scope.dateOptions = {
+        //     formatYear: 'yy',
+        //     startingDay: 1
+        // };
+
+        // $scope.openstart = function($event) {
+        //     console.log("hsadhajsda");
+        //     $event.preventDefault();
+        //     $event.stopPropagation();
+            
+        //     $scope.search.startdateopen = !$scope.search.startdateopen;
+           
+        // };
+
+        // $scope.startDateOptions = {
+        //     formatYear: 'yy',
+        //     maxDate: new Date(2020, 5, 22),
+        //     minDate: new Date().getTime(),
+        //     startingDay: 1
+        //   };
+        //   $scope.endDateOptions = {
+        //     formatYear: 'yy',
+        //     maxDate: new Date(2020, 5, 22),
+        //     minDate: $scope.selectedPackage.startDateString,
+        //     startingDay: 1
+        //   };
+
+
+
+        
+        // $scope.open1 = function($event) { 
+        //     $event.preventDefault();
+        //     $event.stopPropagation();
+        //     console.log('open1'); $scope.popup1.opened = true };
+
+        // $scope.open2 = function($event) { 
+        //     $event.preventDefault();
+        //     $event.stopPropagation();
+        //     console.log('open2')
+        //     $scope.popup2.opened = true; 
+        // };
+        // $scope.inlineOptions = {
+        //     minDate: new Date(),
+        //     showWeeks: true
+        // };
+
+        // $scope.$watch(function(scope) { return scope.selectedPackage.startDateString },
+        //       function(newValue, oldValue) {
+        //         console.log(new Date($scope.selectedPackage.startDateString), new Date($scope.selectedPackage.endDateString))
+        //         console.log($scope.selectedPackage.interestedPricing.duration)
+        //         if($scope.selectedPackage.packageType === 'batch')  {
+        //             console.log('isbatch, nochange can be made')  
+        //         }else{
+        //             const duration = $scope.selectedPackage.interestedPricing.duration
+        //              const temp = moment(newValue).add(duration.value, duration.unit)
+        //              $scope.selectedPackage.endDateString = temp.subtract(1,'day').valueOf()
+
+        //         }
+
+        //       }
+        //      );
+
+
+        // datepicker
+
+        // $scope.userInfoError = {
+        //     name:false,
+        //     phone:false,
+        //     email:false,
+        //     gender:false
+        // }
+      
+    //     $scope.ok = function () {
+    //         console.log('ok')
+    //         console.log(userInfo)
+    //         console.log($scope.userInfo)
+    //         console.log($scope.userInfoError)
+    //         $scope.isLoading = true
+    //         let tempUserId
+    //         // user info validation
+    //         if(userInfo.name === undefined || userInfo.name === ''){
+    //             $scope.userInfoError.name = true
+    //         }else{ $scope.userInfoError.name = false }
+
+    //         if(userInfo.phone === undefined || userInfo.phone === null || userInfo.phone.length === 0){
+    //             $scope.userInfoError.phone = true
+    //         }else {$scope.userInfoError.phone = false} 
+
+    //         if(userInfo.email === undefined || userInfo.email === ''){
+    //             $scope.userInfoError.email = true
+    //         }else {$scope.userInfoError.email = false} 
+
+    //         if(userInfo.gender === undefined || userInfo.gender === null || userInfo.gender === ''){
+    //             $scope.userInfoError.gender = true
+    //         }else {$scope.userInfoError.gender = false} 
+    //         console.log('Reached end')
+    //         if($scope.userInfoError.name || $scope.userInfoError.phone || $scope.userInfoError.email || $scope.userInfoError.gender){
+    //             console.log('All good')
+    //             console.log($scope.userInfo)
+    //             console.log($scope.userInfoError)
+    //             $scope.isLoading = false
+    //             return
+    //         }
+        
+    //         // user info validation end
+
+    //      // send user info, package data to server and get tempId
+
+    //       console.log(userInfo)
+    //       console.log(package)
+    //       console.log(package.startDateString)
+    //     //   console.log(new Date(package.startDateString).getTime())
+    //       const toCreateOrder = {
+    //           name:userInfo.name,
+    //           phone:`+91${userInfo.phone}`,
+    //           email:userInfo.email,
+    //           gender:userInfo.gender,
+    //           package:{
+    //               id: package.id,
+    //               variantId: package.interestedPricing.id,
+    //               startDate: parseInt(package.startDateString, 10),
+    //               endDate: parseInt(package.endDateString, 10),
+    //               amount: package.interestedPricing.taxedPrice
+    //           }
+    //       }
+    //       console.log(toCreateOrder)
+    //       console.log(JSON.stringify(toCreateOrder))
+        
+    //    try{ 
+    //       $http({
+    //           url: 'http://demo.dev.bygcrm.com/api/v1/web/order',
+    //           method: 'POST',
+    //           data: toCreateOrder,
+    //           headers: { 'x-auth-token': `${userInfo.accountId}:${userInfo.centerId}` }
+    //         }).then(function(res) {
+    //         console.log('res')
+    //         console.log(res)
+    //           if (res.status===200) {
+    //             $scope.isLoading = false
+    //             console.log('order :', res)
+    //             tempUserId = res.data.orderId
+    //             $uibModalInstance.close({package, userInfo: $scope.userInfo, tempUserId});
+                
+    //           }
+    //       }, function(err) {
+    //           $scope.isLoading = false
+    //           console.log('err')
+    //           console.log(err)
+    //           alert(err.data.err || 'some error occurred');
+    //           console.log(err)
+    //       })
+    //     }catch(e){console.log(e)}
+    // }
+      
+        // $scope.cancel = function () {
+        //   $uibModalInstance.dismiss('cancel');
+        // };
+      // });
+
+// staticsite.controller('appCtrl', ['$scope', '$http', 'Lightbox', '$uibModal','$window', function($scope, $http, Lightbox, $uibModal, $window) {
+        // console.log('appCtrl')
+        // // console.log(env)
+        // var sc = $scope;
+        // // $scope.googleMapsUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAWvbT8u0MWkv39wwB_j2T_EgSuARl16Ww";
+        // sc.master = {};
+        
+        // sc.userInfo = {
+        //     name: '',
+        //     phone: null,
+        //     email:'',
+        //     gender: '',
+        //     centerId: '',
+        //     accountId: ''
+        // }
+        // sc.basicDetails = {};
+        // sc.gallery;
+        // sc.gymPackages;
+
+        // // facilities
+        // sc.cardioEquipments;
+        // sc.equipments;
+        // sc.fitnessService;
+        // sc.facilities;
+        // sc.registrationForm = {
+        // 'name'     : '',
+        // 'email'      : '',
+        // 'phone'     :'',
+        // 'message'   :''
+        // };
+        // sc.originForm = angular.copy(sc.registrationForm);
+        // sc.name="";
+        // sc.email="";
+        // sc.message="";
+        // sc.phoneNumber="";
+        // sc.selectedCenter = undefined;
+
+
+        // sc.resetForm = function(){
+        //     sc.registrationForm = angular.copy(sc.originForm);
+        //     //sc.registrForm.$setPristine(); // this line will update status of your form, but will not clean your data, where `registrForm` - name of form.
+        // };
+
+        // sc.saveEnquiry = function() {
+        //     if(!!sc.registrationForm.name&&!!sc.registrationForm.email&&!!sc.registrationForm.email&&!!sc.registrationForm.message)
+        //     {
+        //         var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        //         if (!filter.test(sc.registrationForm.email))
+        //             alert('Please provide a valid email address');
+        //         else{
+        //             $http.post('/contactus?center='+sc.selectedCenter.centerId,sc.registrationForm).then(function(res) {
+        //                     if (res.status==200) {
+        //                         alert("Thank you! Your message has been successfully sent. We will contact you very soon!");
+        //                         sc.resetForm();
+        //                     }
+        //                 }, function(err) {
+        //                     alert("Something went wrong");
+        //             })
+        //         }
+        //     } else {
+        //         alert("Kindly fill all the required fields");
+        //     }
+        // }
+
+        // sc.initCalendar = function(openHours) {
+        //     // console.trace();
+        //     $('#calendar').fullCalendar({
+        //         header: {
+        //             left: 'prev,next today',
+        //             center: 'title',
+        //             right: 'month,agendaWeek,agendaDay'
+        //         },
+        //         defaultView: 'agendaWeek',
+        //         nowIndicator: true
+        //         // businessHours: openHours
+        //     });
+        //     $('#calendar').fullCalendar('addEventSource', {
+        //         events: function(start, end, timezone, callback) {
+        //             var fromDate = start.format('YYYY-MM-DD');
+        //             var toDate = end.format('YYYY-MM-DD');
+        //             // var centerId = sc.selectedCenter ? sc.selectedCenter.centerId : '';
+
+        //             $.getJSON("/controllers?fromDate=" + fromDate + '&toDate=' + toDate + '&center=' + centerId, function(data) {
+        //                 var mappedEvents = _.map(data.events, function(event) {
+        //                     var eve = {
+        //                         id: event.id,
+        //                         title: event.title,
+        //                         start: new Date(event.start),
+        //                     };
+        //                     if (event.end) {
+        //                         eve.end = new Date(event.end);
+        //                     }
+        //                     if (event.color) {
+        //                         eve.color = event.color;
+        //                     }
+        //                     return eve;
+        //                 });
+                        
+        //                 $('#calendar').fullCalendar({
+        //                     events: mappedEvents
+        //                 });
+        //                 callback(mappedEvents);
+        //             });
+        //         }
+        //     });
+        // }
+        // sc.initCalendar();
+
+        // var httpRegEx = new RegExp('^(http|https)://')
+
+        // function addhttp(inputurl) {
+
+        //     if (httpRegEx.test(inputurl))
+        //         return inputurl;
+        //     else
+        //         return 'https://' + inputurl;
+        // }
+        
+        // $http.get('/data')
+        //     .then(function(res) {
+        //         // console.log(res.data)
+        //         if (res.status) {
+
+        //             // sc.master = _.find(res.data.data.centers, function(o) { return o.centerId == "819169774465470464" })
+        //             sc.selectedCenter = res.data.data.centers[0];
+        //             sc.master = res.data.data.centers[0]
+
+        //             // var businessHours = sc.master.timings ? sc.generateBusinessHours(sc.master.timings) : [];
+                    
+        //             // sc.initCalendar(businessHours);
+        //         }
+        //     })
+
+        // $http.get('/data')
+        //     .then(function(res) {
+        //         // console.log(res.data)
+        //         if (res.status) {
+
+        //             // sc.master = _.find(res.data.data.centers, function(o) { return o.centerId == "819169774465470464" })
+        //             sc.selectedCenter = res.data.data.centers[0];
+        //             sc.master = res.data.data.centers[0]
+
+        //             // var businessHours = sc.master.timings ? sc.generateBusinessHours(sc.master.timings) : [];
+        //             sc.initCalendar();
+        //             // sc.initCalendar(businessHours);
+        //             //console.log(sc.master)
+        //             sc.basicDetails.accountId = res.data.data.accountId
+        //             sc.basicDetails.centerId = sc.master.centerId;
+        //             sc.basicDetails.name = sc.master.name;
+        //             sc.basicDetails.address = sc.master.address;
+        //             sc.basicDetails.aboutUs = sc.master.aboutUs;
+        //             sc.basicDetails.email = sc.master.email;
+        //             sc.basicDetails.contacts = sc.master.contacts;
+        //             sc.basicDetails.location = sc.master.location;
+        //             window.sessionStorage.setItem('gymloc', JSON.stringify(sc.master.location))
+        //             sc.basicDetails.landLineNumber = sc.master.landLineNumber;
+        //             sc.basicDetails.instruction = sc.master.instruction;
+        //             sc.basicDetails.toc = sc.master.toc;
+        //             sc.basicDetails.transfer = sc.master.transfer;
+
+        //             sc.basicDetails.logo = sc.master.logoUrl;
+        //             sc.basicDetails.cover_lg = sc.master.coverUrl;
+        //             if (!!sc.master.social) {
+        //                 _.forEach(sc.master.social, function(s) {
+        //                     if (s.name == 'Facebook') {
+        //                         sc.basicDetails.fb = addhttp(s.url);
+        //                     }
+        //                     if (s.name == 'Twitter') {
+        //                         sc.basicDetails.tw = addhttp(s.url);
+        //                     }
+        //                     if (s.name == 'Instagram') {
+        //                         sc.basicDetails.ig = addhttp(s.url);
+        //                     }
+        //                 })
+        //             }
+
+        //             // console.log(sc.basicDetails.cover_lg)
+
+        //             sc.gallery = _.map(sc.master.gallery, function(o, i) {
+        //                 o.id = i;
+        //                 return o;
+        //             });
+        //             // sc.timings = sc.master.timings;
+        //             // sc.time = [{day:'monday',time:'930am - 10pm'}]
+
+        //             sc.cardioEquipments = _.remove(sc.master.equipmentTags, function(o) {
+        //                 if (!!o.type) {
+        //                     if (o.type.name == 'cardio') {
+        //                         return true;
+        //                     } else {
+        //                         return false;
+        //                     }
+        //                 }
+        //             });
+
+        //             sc.equipments = sc.master.equipmentTags;
+        //             sc.fitnessService = sc.master.fitnessTags;
+        //             sc.facilities = sc.master.facilityTags;
+        //             console.log('master ',sc.master)
+        //             // serverpackages
+        //             console.log('serverpackages',serverpackages)
+        //             console.log('serverpackages',serverpackages)
+        //             // console.log(sc.master.packages)
+
+
+        //             if (sc.basicDetails.location && sc.basicDetails.location.lat && sc.basicDetails.location.lng) {
+        //                 sc.map = { center: [sc.basicDetails.location.lat, sc.basicDetails.location.lng] }
+        //                 sc.marker = { position: [sc.basicDetails.location.lat, sc.basicDetails.location.lng] };
+        //             }
+
+        //             try {
+        //                 var title = sc.master.title ? sc.master.title : sc.master.name || "";
+        //                 var faviconUrl = sc.master.faviconUrl || '';
+        //                 $(document).ready(function() {
+        //                     document.title = title;
+        //                     $('link[rel="shortcut icon"]').attr('href', faviconUrl);
+        //                 });
+        //             } catch(err) {
+        //                 console.log(err);
+        //             }
+        //             // set userInfo
+        //             sc.userInfo.centerId = sc.basicDetails.centerId 
+        //             sc.userInfo.accountId = sc.basicDetails.accountId
+        //             // console.log(sc.basicDetails)
+        //             // console.log(sc.gallery)
+        //             // console.log(sc.equipments)
+        //             // console.log(sc.cardioEquipments)
+        //             // console.log(sc.fitnessService)
+        //             // console.log(sc.facilities)
+        //             // console.log(sc.gymPackages)
+        //             // console.log(sc.displayTimings)
+
+        //             //console.log(sc.displaySpecialTiming)
+        //         }
+        //     }, function(err) {
+        //         console.log(err)
+        //     })
+
+        // pacakges start
+        // sc.genData = function genData(row, packageType) {
+        //     if (packageType == 'sessions') {
+        //         return row.classesCount + " Session" + (row.classesCount > 1 ? 's' : '') + " for " + row.duration.value + " " + row.duration.unit + (row.duration.value > 1 ? 's' : '') + " @ " + String.fromCharCode(8377) + row.offerPrice;
+        //     } else {
+        //         return row.duration.value + " " + row.duration.unit + (row.duration.value > 1 ? 's' : '') + " @ " + String.fromCharCode(8377) + row.offerPrice;
+        //     }
+        // };
+
+        // sc.gymPackages = _.map(serverpackages, function(p) {
+        //     var gympkg = {
+        //         id: p.id,
+        //         name: p.name,
+        //         imageUrl: p.imageUrl,
+        //         packageType: p.packageType || p.type,
+        //         description: p.description,
+        //         isTaxApplicable: p.isTaxApplicable,
+        //         fitnessTags: p.fitnessTags,
+        //         taxes: p.taxes,
+        //         batch: p.batch,
+        //         sessions: p.sessions,
+        //         duration: p.duration,
+        //     }
+        //     if (gympkg.packageType == 'sessions') {
+        //         gympkg.subVariant = p.sessions[0];
+        //         gympkg.interestedPricing = gympkg.subVariant.variants[0]
+        //     }
+        //     if (gympkg.packageType == 'duration') {
+        //         gympkg.subVariant = p.duration[0];
+        //         gympkg.interestedPricing = gympkg.subVariant.variants[0]
+        //     }
+        //     return gympkg
+        // })
+        // pacakges end
+
+        // sc.scrollLeft = function() {
+        //     var leftPos = $('#gallery').scrollLeft();
+        //     $("#gallery").animate({ scrollLeft: leftPos - 200 }, 800);
+        // }
+
+        // sc.scrollRight = function() {
+        //     var leftPos = $('#gallery').scrollLeft();
+        //     $("#gallery").animate({ scrollLeft: leftPos + 200 }, 800);
+        // }
+
+        // sc.scrollPackagesLeft = function() {
+        //     console.log('scrollegt')
+        //     var leftPos = $('#packageslist').scrollLeft();
+        //     $("#packageslist").animate({ scrollLeft: leftPos - 200 }, 800);
+        // }
+
+        // sc.scrollPackagesRight = function() {
+        //     var leftPos = $('#packageslist').scrollLeft();
+        //     $("#packageslist").animate({ scrollLeft: leftPos + 200 }, 800);
+        // }
+
+        // sc.openLightboxModal = function(index) {
+        //     Lightbox.openModal(sc.gallery, index);
+        // };
+
+        // sc.map = {center: [40.7, -74]}
+        // console.log(sc.map)
+
+        // console.log(sc.basicDetails.location)
+
+        // sc.packageTypeSelected = function(selectedPackage, packageType) {
+        //     // console.log(selectedPackage)
+        //     // console.log(packageType)
+        //     if (packageType.variants.length > 0)
+        //         selectedPackage.interestedPricing = packageType.variants[0]
+        // }
+
+        // $('#right-button').click(function() {
+        //     event.preventDefault();
+        //     $('#content').animate({
+        //         marginLeft: "+=200px"
+        //     }, "slow");
+        // });
+
+        // $('#left-button').click(function() {
+        //     event.preventDefault();
+        //     $('#content').animate({
+        //         marginLeft: "-=200px"
+        //     }, "slow");
+        // });
+
+       
+        // check payment and create booking
+        // sc.CheckandCreateBooking = function(response){
+        //     console.log('handler called')
+        //     console.log(response)
+        //     const toCreateBooking= {
+        //         orderId: sc.tempUserId,
+        //         transactionId: response.razorpay_payment_id
+        //     }
+        //     console.log('toCreateBooking')
+        //     console.log(toCreateBooking)
+        //     console.log('initiating payment confirmation')
+
+        //     $http({
+        //         url: 'http://demo.dev.bygcrm.com/api/v1/web/payment',
+        //         method: 'POST',
+        //         data: toCreateBooking,
+        //         headers: { 'x-auth-token': `${sc.userInfo.accountId}:${sc.userInfo.centerId}` }
+        //     }).then(function(res) {   
+        //     // $http.post('/url', { orderId: response.razorpay_payment_id }).then(function(res) {
+        //         console.log(11)
+        //         console.log('res')
+        //         console.log(res)
+        //         var modalInstance = $uibModal.open({
+        //             animation: true,
+        //             templateUrl: 'successModal.html',
+        //             controller: 'ModalInstanceCtrl',
+        //             size: 'md',
+        //             resolve: {
+        //               package: function () {
+        //                 return {}
+        //               },
+        //               userInfo: function () {
+        //                   return {}
+        //                 }
+        //             }
+        //           });
+        //         console.log('Success')
+        //         // show succcess modal
+        //      }, function(err) {
+        //         console.log(0)
+        //         console.log('err')
+        //         console.log(err.data.err)
+        //         alert(err.data.err || 'Problem in getting payment info from razorpay, we will message you shortly')
+        //         alert('Error')
+        //         // show failure modal
+        //     })
+        
+        // }
+
+        // modal code
+        // sc.booknow = function (package) {
+        //     package.startDateString= new Date().getTime()
+
+        //     // package data cleaning to send to server
+        //     if(package.packageType === 'sessions'){
+        //         const row = package.interestedPricing
+        //         package.packageDetails = row.classesCount + " Session" + (row.classesCount > 1 ? 's' : '') + " for " + row.duration.value + " " + row.duration.unit + (row.duration.value > 1 ? 's' : '')
+
+        //         const temp = moment(package.startDateString).add(row.duration.value, row.duration.unit)
+        //         package.endDateString = temp.subtract(1,'day').valueOf()
+        //     }else if(package.packageType ==='duration'){
+        //         const row = package.interestedPricing
+        //         package.packageDetails = row.duration.value + " " + row.duration.unit + (row.duration.value > 1 ? 's' : '')
+                
+        //         const temp = moment(package.startDateString).add(row.duration.value, row.duration.unit)
+        //         package.endDateString = temp.subtract(1,'day').valueOf()
+        //         // package.endDateString= moment(package.startDateString).add(row.duration.value, row.duration.unit).valueOf()
+        //     }else if(package.packageType === 'batch'){
+        //         package.interestedPricing = package.batch
+        //         $scope.dateDisabled = true
+        //         package.startDateString= package.batch.startDate
+        //         package.endDateString= package.batch.endDate
+        //     }else{}
+        
+            
+
+        //     console.log(package)
+        //     var modalInstance = $uibModal.open({
+        //       animation: true,
+        //       templateUrl: 'myModalContent.html',
+        //       controller: 'ModalInstanceCtrl',
+        //       size: 'md',
+        //       resolve: {
+        //         package: function () {
+        //           return package
+        //         },
+        //         userInfo: function () {
+        //             return sc.userInfo
+        //           }
+        //       }
+        //     });
+        
+        //     modalInstance.result.then(function (response) {
+        //         console.log('open pg')
+        //         console.log(response)
+        //         let selectedPackage = response.package 
+        //         let userInfo = response.userInfo 
+        //         sc.tempUserId = response.tempUserId
+
+                
+        //     //step1 open razorpay instance here
+        //     //step2 on paymentsuccess - createbooking
+        //     //step3 show booking status
+        //     // step1
+        //     console.log(package.interestedPricing)
+        //     console.log(package.interestedPricing.taxedPrice)
+        //     console.log(parseInt(package.interestedPricing.taxedPrice, 10)*100)
+        //     let razorpayObject = {
+        //         name: sc.basicDetails.name,
+        //         key:'rzp_test_oAy4n1jgn2ggMc',
+        //         description: package.name,
+        //         amount: parseInt(package.interestedPricing.taxedPrice, 10)*100,
+        //         image: sc.basicDetails.logo,
+        //         buttonText:'Pay with Razorpay',
+        //         currency:'INR',
+        //         email: userInfo.email,
+        //         theme: {color:'#e9452f'},
+        //         prefill: { name: userInfo.name, email: userInfo.email,'contact': userInfo.phone },
+        //         notes: { orderId: response.tempUserId, accountId: userInfo.accountId, centerId: userInfo.centerId },
+        //         handler: sc.CheckandCreateBooking
+        //       }
+        //     //   if(if_we_get_color){
+        //     //   razorpayObject.theme= {color:'#e9452f'}
+        //     //   }
+        //     console.log('razorpayObject')
+        //     console.log(razorpayObject)
+        //     var Rzpay = new Razorpay(razorpayObject)
+        //     Rzpay.open();
+
+
+            
+        //     }, function () {
+        //       console.info('Modal dismissed at: ' + new Date());
+        //     });
+        //   };
+          
+    // }]);
