@@ -1,0 +1,98 @@
+.slider .title {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	border-radius: .5em;
+	background-clip: padding-box;
+	font-size: 28px;
+	color: rgba(0, 0, 0, 0.79);
+	padding: 8px 15px;
+	box-sizing: border-box;
+	background-color: rgba(255, 255, 255, 0.72);
+}
+
+/*jssor slider loading skin double-tail-spin css*/
+
+.jssorl-004-double-tail-spin img {
+	animation-name: jssorl-004-double-tail-spin;
+	animation-duration: 1.6s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes jssorl-004-double-tail-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/*jssor slider arrow skin 082 css*/
+
+.jssora082 {
+	display: block;
+	position: absolute;
+	cursor: pointer;
+}
+
+.jssora082 .c {
+	fill: #fff;
+	fill-opacity: .5;
+	stroke: #000;
+	stroke-width: 160;
+	stroke-miterlimit: 10;
+	stroke-opacity: 0.3;
+}
+
+.jssora082 .a {
+	fill: #000;
+	opacity: .8;
+}
+
+.jssora082:hover .c {
+	fill-opacity: .3;
+}
+
+.jssora082:hover .a {
+	opacity: 1;
+}
+
+.jssora082.jssora082dn {
+	opacity: .5;
+}
+
+.jssora082.jssora082ds {
+	opacity: .3;
+	pointer-events: none;
+}
+
+/*jssor slider thumbnail skin 052 css*/
+
+.jssort052 .p {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+}
+
+.jssort052 .t {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	opacity: .45;
+}
+
+.jssort052 .p:hover .t {
+	opacity: .8;
+}
+
+.jssort052 .pav .t,
+.jssort052 .pdn .t,
+.jssort052 .p:hover.pdn .t {
+	opacity: 1;
+}
