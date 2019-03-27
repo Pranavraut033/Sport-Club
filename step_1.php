@@ -12,16 +12,15 @@
 	<?php include("includes/header.php"); ?>
 	<div id="container">
 		<form id="form" action="step_2.php" method="post">
-			<?php 
-				if ( isset( $_COOKIE[ "error" ] ) ) {
-			?>
+			<?php if (isset($_COOKIE["error"])) { ?>
 			<div class="errorblock mb-2">
 				<?php 
-					echo( $_COOKIE[ "error" ] );
-					unset($_COOKIE[ "error" ]);
+				echo ($_COOKIE["error"]);
+				unset($_COOKIE["error"]);
 				?>
 			</div>
-			<?php } ?>
+			<?php 
+		} ?>
 			<h1 class="title">Basic Information</h1>
 			<fieldset class="mb-0 pb-0">
 				<div class="w-40 input-group">
@@ -88,9 +87,9 @@
 				<input id="tnc" class="field" type="checkbox" name="tnc" value="true">
 				<label for="tnc" class="title">Agree with <a href="tnc.php">Terms and conditions</a></label>
 				<button class="btn fl" type="reset" value="reset">
-                    <img src="img/ic_cross.png" alt="Clear"> Clear
-                </button>
-			
+					<img src="img/ic_cross.png" alt="Clear"> Clear
+				</button>
+
 				<button class="btn main" type="submit" value="submit" onClick="return validate()">Next</button>
 			</div>
 		</form>
@@ -99,4 +98,4 @@
 	<script src="js/validation.js"></script>
 </body>
 
-</html>
+</html> 

@@ -1,7 +1,7 @@
 <?php
 session_start();
-if ( isset( $_SESSION[ "username" ] ) )
-	header( "Location: profile.php" )and die();
+if (isset($_SESSION["username"]))
+	header("Location: profile.php") and die();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,26 +21,16 @@ if ( isset( $_SESSION[ "username" ] ) )
 		<div id="featured">
 			<div class="thumbnail">
 				<img src="img/thumb_sport.png" alt="Sports">
-				<h3 class="title">Sports</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi reprehenderit dolor quibusdam recusandae suscipit, molestiae culpa iusto quas deleniti, illo aut perferendis omnis dolorum est repellat. Error autem similique amet!<br>
-					<a href="about.php">Read more &gt;</a>
-				</p>
+				<h3 class="title"><a href="about.php">Sports</a></h3>
+
 			</div>
 			<div class="thumbnail">
 				<img src="img/thumb_award.png" alt="Sports">
-				<h3 class="title">Achievements</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita nihil culpa, itaque iure. Voluptatum obcaecati adipisci laudantium minus itaque, labore, fugiat! Aliquid animi qui, pariatur cum soluta provident mollitia distinctio!
-					<br>
-					<a href="about.php">Read more &gt;</a>
-				</p>
+				<h3 class="title"><a href="about.php">Achievements</a></h3>
 			</div>
 			<div class="thumbnail">
 				<img src="img/thumb_gym.png" alt="Sports">
-				<h3 class="title">Gym</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem eius aliquam quaerat rerum tempore aliquid velit doloremque quos ex consequuntur, amet nobis alias saepe enim maiores at minus atque perspiciatis.
-					<br>
-					<a href="about.php">Read more &gt;</a>
-				</p>
+				<h3 class="title"><a href="about.php">Gym</a></h3>
 			</div>
 		</div>
 		<div id="reviews">
@@ -48,9 +38,9 @@ if ( isset( $_SESSION[ "username" ] ) )
 			<div>
 				<div class="review center">
 					<p><em>“Great gym ! Going there now for 2 month and absolutely love the
-					experience - especially the trainers there are helpful and keep on pushing
-					you. I really liked the experience and comparatively at an economical
-					price.”</em>
+							experience - especially the trainers there are helpful and keep on pushing
+							you. I really liked the experience and comparatively at an economical
+							price.”</em>
 					</p>
 					<h3 class="title fr">- Robert Smith</h3>
 				</div>
@@ -72,4 +62,4 @@ if ( isset( $_SESSION[ "username" ] ) )
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmmxWkufB08kD6TZx_PG7Rzi35B86og9k&callback=myMap"></script>
 </body>
 
-</html>
+</html> 

@@ -7,7 +7,7 @@
 	<!-- FONTS BY GOOGLE(www.fonts.google.com) -->
 	<link href="https://fonts.googleapis.com/css?family=Nova+Mono|Raleway|Roboto|Roboto+Condensed|Roboto+Mono" rel="stylesheet">
 	<style>
-		
+
 	</style>
 </head>
 
@@ -48,9 +48,9 @@
 				Basketball is a team sport in which two teams of five players, opposing one another on a rectangular court, compete with the primary objective of shooting a basketball through the defender's hoop while preventing the opposing team from shooting through their own hoop.We have 2 basketball courts with the pointers marked. The coaches were professional state players.</p>
 		</div>
 	</div>
-	<?php include("includes/footer.html")?>
+	<?php include("includes/footer.html") ?>
 	<script src="js/master.js"></script>
 
 </body>
 
-</html>
+</html> 

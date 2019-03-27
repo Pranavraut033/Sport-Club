@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<?php include("includes/header.php")?>
+	<?php include("includes/header.php") ?>
 	<div id="container" class="justify">
 		<h1 class="title center">Fitness Square Sport Club</h1>
 		<h2 class="title center">Terms And Conditions</h2>
@@ -69,8 +69,8 @@
 			</div>
 		</div>
 	</div>
-	<?php include("includes/footer.html")?>
+	<?php include("includes/footer.html") ?>
 	<script src="js/master.js"></script>
 </body>
 
-</html>
+</html> 

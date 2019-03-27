@@ -1,29 +1,29 @@
 <?php
 session_start();
-if ( isset( $_POST[ 'submit' ] ) ) {
-	$username = $_POST[ 'username' ];
-	$password = $_POST[ 'password' ];
-	include( "includes/connection.php" );
-	$result = mysqli_query( $connect, "SELECT password FROM registration where username = '$username';" );
-	if ( $row = mysqli_fetch_assoc( $result ) ) {
+if (isset($_POST['submit'])) {
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	include("includes/connection.php");
+	$result = mysqli_query($connect, "SELECT password FROM registration where username = '$username';");
+	if ($row = mysqli_fetch_assoc($result)) {
 		echo $password . "-";
-		print_r( $row );
-		if ( $password == $row[ "password" ] ) {
-			$_SESSION[ "username" ] = $username;
-			header( "Location: profile.php" );
+		print_r($row);
+		if ($password == $row["password"]) {
+			$_SESSION["username"] = $username;
+			header("Location: profile.php");
 			die();
 		} else {
-			setcookie( "error", "Invalid password!", time() + ( 5 ), "/" );
-			header( "Location: login.php" );
+			setcookie("error", "Invalid password!", time() + (5), "/");
+			header("Location: login.php");
 			die();
 		}
 	} else {
-		setcookie( "error", "NO User Found with username '$username'", time() + ( 5 ), "/" );
-		header( "Location: login.php" );
+		setcookie("error", "NO User Found with username '$username'", time() + (5), "/");
+		header("Location: login.php");
 		die();
 	}
 
-	mysqli_close( $connect );
+	mysqli_close($connect);
 }
 ?>
 <!doctype html>
@@ -41,15 +41,16 @@ if ( isset( $_POST[ 'submit' ] ) ) {
 	<div id="container">
 		<form action="login.php" method="post">
 			<?php
-			if ( isset( $_COOKIE[ "error" ] ) ) {
+			if (isset($_COOKIE["error"])) {
 				?>
 			<div class="errorblock">
 				<?php 
-					echo( $_COOKIE[ "error" ] );
-					unset($_COOKIE[ "error" ]);
+				echo ($_COOKIE["error"]);
+				unset($_COOKIE["error"]);
 				?>
 			</div>
-			<?php } ?>
+			<?php 
+		} ?>
 			<h2 class="title">Login Here</h2>
 			<fieldset class="w-60 py-0" style="border: 3px solid rgba(51,19,125,.8); padding-bottom: 25px;">
 				<div class="input-group w-50 fn">
@@ -70,4 +71,4 @@ if ( isset( $_POST[ 'submit' ] ) ) {
 	<?php include("includes/footer.html") ?>
 </body>
 
-</html>
+</html> 

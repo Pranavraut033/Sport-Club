@@ -1,21 +1,21 @@
 <?php
 session_start();
-if ( !isset( $_SESSION[ "username" ] ) ) {
-	setcookie( "error", "Login First", time() + 5, "/" );
-	header( "Location: login.php" );
+if (!isset($_SESSION["username"])) {
+	setcookie("error", "Login First", time() + 5, "/");
+	header("Location: login.php");
 	die();
 }
-if ( !isset( $_POST[ "mship_type" ] ) ) {
-	setcookie( "error", "Select Service type", time() + 5, "/" );
-	header( "Location: step_2.php" );
+if (!isset($_POST["mship_type"])) {
+	setcookie("error", "Select Service type", time() + 5, "/");
+	header("Location: step_2.php");
 	die();
 }
-$service = $_POST[ "mship_type" ];
-if ( $service == "all" ) {
-	include( "includes/connection.php" );
+$service = $_POST["mship_type"];
+if ($service == "all") {
+	include("includes/connection.php");
 
-	setcookie( "amount", "40000", time() + 5, "/" );
-	header( "Location: payment.php" );
+	setcookie("amount", "40000", time() + 5, "/");
+	header("Location: payment.php");
 
 	die();
 }
@@ -61,12 +61,12 @@ $services = array(
 		)
 	)
 );
-$service = $_POST[ "mship_type" ];
-if ( $service == "all" ) {
-	include( "includes/connection.php" );
+$service = $_POST["mship_type"];
+if ($service == "all") {
+	include("includes/connection.php");
 
-	setcookie( "amount", "8000", time() + 5, "/" );
-	header( "Location: payment.php" );
+	setcookie("amount", "8000", time() + 5, "/");
+	header("Location: payment.php");
 
 	die();
 }
@@ -89,9 +89,9 @@ if ( $service == "all" ) {
 		<div class="membership-list">
 			<form method="post" action="payment.php">
 				<?php
-				echo( "<input type=\"text\" name=\"service\" hidden value=\"$service\">" );
-				$list = $services[ $service ];
-				if ( $service == "sport" ) {
+				echo ("<input type=\"text\" name=\"service\" hidden value=\"$service\">");
+				$list = $services[$service];
+				if ($service == "sport") {
 					?>
 				<div class="action top my-1 mb-4">
 					<h2 class="title my-1">Choose Sport Membership</h2>
@@ -99,7 +99,7 @@ if ( $service == "all" ) {
 				</div>
 				<?php for ($i = 0; $i < count($list); $i++) { ?>
 				<fieldset class="ms_tile" data-tilt data-tilt-perspective="3000" data-tilt-scale="1.02">
-					<img class="thumbnail" <?php echo "src =\"img/".$list[$i][ "image"]. "\"" ?> alt="image">
+					<img class="thumbnail" <?php echo "src =\"img/" . $list[$i]["image"] . "\"" ?> alt="image">
 					<div class="content">
 						<h3 class="title">
 							<?php echo $list[$i]["title"]; ?>
@@ -109,8 +109,8 @@ if ( $service == "all" ) {
 							<?php echo $list[$i]["detail"]; ?>
 						</p>
 						<div class="input-group">
-							<label <?php echo "for=\"in_".$list[$i]['id']."\"" ?> class="title fl">Membership:</label>
-							<select <?php echo "id=\"in_".$list[$i]['id']."\" name=\"".$list[$i]['id']."\""?> class="field">
+							<label <?php echo "for=\"in_" . $list[$i]['id'] . "\"" ?> class="title fl">Membership:</label>
+							<select <?php echo "id=\"in_" . $list[$i]['id'] . "\" name=\"" . $list[$i]['id'] . "\"" ?> class="field">
 								<option value="none" selected>No Membership</option>
 								<option value="monthly">Monthly @ Rs.1000</option>
 								<option value="quarterly">Quarterly @ Rs.2500</option>
@@ -119,16 +119,17 @@ if ( $service == "all" ) {
 							</select>
 						</div>
 						<div class="input-group">
-							<label <?php echo "for=\"in_tim".$list[$i]['id']."\"" ?> class="title fl">Select timing:</label>
-							<select <?php echo "id=\"in_tim".$list[$i]['id']."\" name=\"tim_".$list[$i]['id']."\"" ?> class="field">
+							<label <?php echo "for=\"in_tim" . $list[$i]['id'] . "\"" ?> class="title fl">Select timing:</label>
+							<select <?php echo "id=\"in_tim" . $list[$i]['id'] . "\" name=\"tim_" . $list[$i]['id'] . "\"" ?> class="field">
 								<option value="morning">6 AM to 11:30 AM</option>
 								<option value="evening" selected>4 PM to 8:30 PM</option>
 							</select>
 						</div>
 					</div>
 				</fieldset>
-				<?php }
-				} else if($service == "gym") { ?>
+				<?php 
+			}
+		} else if ($service == "gym") { ?>
 				<div class="action top my-1 mb-3">
 					<h2 class="title fl my-1">Select Yearly Package of</h2>
 					<button id="next_btn" class="btn main fr hidden mt-2" type="submit" value="submit">Next</button>
@@ -144,9 +145,9 @@ if ( $service == "all" ) {
 				</div>
 				<fieldset>
 					<?php for ($i = 0; $i < count($list); $i++) { ?>
-					<input type="radio" name="gym" <?php echo "id=\"in_".$list[$i][ "id"]. "\" value=\"".$list[$i][ "id"]. "\"" ?> hidden>
-					<label <?php echo "onclick=\"select('".$list[$i]['id']."')\" for=\"in_".$list[$i]['id']. "\""?>  >
-						<div class="ch" data-tilt data-tilt-perspective="3000" data-tilt-scale="1.02" <?php echo "id=\"".$list[$i][ "id"]. "\" style=\"background-image:url(img/".$list[$i]["image"].")\""?>>
+					<input type="radio" name="gym" <?php echo "id=\"in_" . $list[$i]["id"] . "\" value=\"" . $list[$i]["id"] . "\"" ?> hidden>
+					<label <?php echo "onclick=\"select('" . $list[$i]['id'] . "')\" for=\"in_" . $list[$i]['id'] . "\"" ?>>
+						<div class="ch" data-tilt data-tilt-perspective="3000" data-tilt-scale="1.02" <?php echo "id=\"" . $list[$i]["id"] . "\" style=\"background-image:url(img/" . $list[$i]["image"] . ")\"" ?>>
 							<div class="tile-background">
 								<div class="text">
 									<h2 class="title"><?php echo $list[$i]["title"]; ?></h2>
@@ -154,10 +155,12 @@ if ( $service == "all" ) {
 								</div>
 							</div>
 						</div>
-               	 	</label>
-					<?php }?>
+					</label>
+					<?php 
+				} ?>
 				</fieldset>
-				<?php }?>
+				<?php 
+			} ?>
 			</form>
 		</div>
 	</div>
@@ -167,4 +170,4 @@ if ( $service == "all" ) {
 	<script src="js/lib/tilt.jquery.js"></script>
 </body>
 
-</html>
+</html> 

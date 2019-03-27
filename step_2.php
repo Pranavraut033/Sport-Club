@@ -1,61 +1,92 @@
 <!DOCTYPE html>
 <?php
 session_start();
-if ( isset( $_POST[ 'tnc' ] ) ) {
-	$uname = $_POST[ 'uname' ];
-	$password = $_POST[ 'password' ];
-	$fname = $_POST[ 'fname' ];
-	$lname = $_POST[ 'lname' ];
-	$email = $_POST[ 'email' ];
-	$phone = $_POST[ 'phone' ];
-	$gender = $_POST[ 'gender' ];
-	$dob = $_POST[ 'dob' ];
-	$address = $_POST[ 'description' ];
-	$pincode = $_POST[ 'pin_code' ];
-	$city = $_POST[ 'city' ];
+if (isset($_POST['tnc'])) {
+	$uname = $_POST['uname'];
+	$password = $_POST['password'];
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+	$email = $_POST['email'];
+	$phone = $_POST['phone'];
+	$gender = $_POST['gender'];
+	$dob = $_POST['dob'];
+	$address = $_POST['description'];
+	$pincode = $_POST['pin_code'];
+	$city = $_POST['city'];
 
-	include( "includes/connection.php" );
-	$result = mysqli_query( $connect, "SELECT password FROM registration where username = '$uname';" );
+	include("includes/connection.php");
+	$result = mysqli_query(
+		$connect,
+		"SELECT password FROM registration where username = '$uname';"
+	);
 
 
-	if ( isset( $_COOKIE[ "update" ] ) && isset( $_SESSION[ "username" ] ) ) {
-		unset( $_COOKIE[ "update" ] );
-		if ( $uname != $_SESSION[ "username" ] && $row = mysqli_fetch_assoc( $result ) ) {
-			header( "Location: step_1.php" );
-			setcookie( "error", "Username already exists!", time() + ( 5 ), "/" );
+	if (
+		isset($_COOKIE["update"]) &&
+		isset($_SESSION["username"])
+	) {
+		unset($_COOKIE["update"]);
+		if ($uname != $_SESSION["username"] && $row = mysqli_fetch_assoc($result)) {
+			header("Location: step_1.php");
+			setcookie("error", "Username already exists!", time() + (5), "/");
 			die();
 		}
 
-		$query = "UPDATE registration SET username = '$uname', password = '$password', first_name = '$fname', last_name = '$lname', email = '$email', phone_number =  $phone, gender =  '$gender', dob =  '$dob', address = '$address', pincode =  $pincode, city = '$city' WHERE username = '" . $_SESSION[ "username" ] . "'";
-		$b = mysqli_query( $connect, $query )or die( mysqli_error( $connect ) );
-		mysqli_close( $connect );
-		if ( !$b ) {
-			header( "Location: step_1.php" );
-			setcookie( "error", "Error in creation new user", time() + ( 5 ), "/" );
+		$query = "UPDATE `registration` SET 
+					`username` = '$uname', 
+					`password` = '$password', 
+					`first_name` = '$fname', 
+					`last_name` = '$lname', 
+					`email` = '$email', 
+					`phone_number` =  $phone, 
+					`gender` =  '$gender', 
+					`dob` =  '$dob', 
+					`address` = '$address', 
+					`pincode` =  $pincode, 
+					`city` = '$city' 
+				 WHERE username = '" . $_SESSION["username"] . "'";
+		$b = mysqli_query($connect, $query) or die(mysqli_error($connect));
+		mysqli_close($connect);
+		if (!$b) {
+			header("Location: step_1.php");
+			setcookie("error", "Error in creation new user", time() + (5), "/");
 		} else {
-			header( "Location: profile.php" );
-			$_SESSION[ "username" ] = $uname;
+			header("Location: profile.php");
+			$_SESSION["username"] = $uname;
 		}
 		die();
 	}
 
-	if ( $row = mysqli_fetch_assoc( $result ) ) {
-		header( "Location: step_1.php" );
-		setcookie( "error", "Username already exists!", time() + ( 5 ), "/" );
+	if ($row = mysqli_fetch_assoc($result)) {
+		header("Location: step_1.php");
+		setcookie("error", "Username already exists!", time() + (5), "/");
 		die();
 	}
-	$query = "INSERT INTO registration VALUES('$uname', '$password', '$fname', '$lname', '$email', $phone, '$gender', '$dob', '$address', $pincode, '$city')";
-	$b = mysqli_query( $connect, $query )or die( mysqli_error( $connect ) );
-	mysqli_close( $connect );
-	if ( !$b ) {
-		header( "Location: step_1.php" );
-		setcookie( "error", "Error in creation new user", time() + ( 5 ), "/" );
+	$query =
+		"INSERT INTO `registration` VALUES (
+			'$uname',
+			'$password', 
+			'$fname', 
+			'$lname', 
+			'$email', 
+			$phone, 
+			'$gender',
+			'$dob',
+			'$address',
+			$pincode, 
+			'$city'
+		)";
+	$b = mysqli_query($connect, $query) or die(mysqli_error($connect));
+	mysqli_close($connect);
+	if (!$b) {
+		header("Location: step_1.php");
+		setcookie("error", "Error in creation new user", time() + (5), "/");
 		die();
 	} else
-		$_SESSION[ "username" ] = $uname;
-} else if ( !isset( $_SESSION[ "username" ] ) ) {
-	header( "Location: step_1.php" );
-	setcookie( "error", "Need To Accept Term and Condition", time() + ( 5 ), "/" );
+		$_SESSION["username"] = $uname;
+} else if (!isset($_SESSION["username"])) {
+	header("Location: step_1.php");
+	setcookie("error", "Need To Accept Term and Condition", time() + (5), "/");
 	die();
 }
 ?>
@@ -73,15 +104,16 @@ if ( isset( $_POST[ 'tnc' ] ) ) {
 	<div id="container" style="margin-top: -20px">
 		<form method="post" action="step_3.php">
 			<?php 
-				if ( isset( $_COOKIE[ "error" ] ) ) {
-			?>
+			if (isset($_COOKIE["error"])) {
+				?>
 			<div class="errorblock mb-2">
 				<?php 
-					echo( $_COOKIE[ "error" ] );
-					unset($_COOKIE[ "error" ]);
+				echo ($_COOKIE["error"]);
+				unset($_COOKIE["error"]);
 				?>
 			</div>
-			<?php } ?>
+			<?php 
+		} ?>
 			<input id="mship_sport" type="radio" name="mship_type" hidden value="sport">
 			<input id="mship_gym" type="radio" name="mship_type" hidden value="gym">
 			<input id="mship_all" type="radio" name="mship_type" hidden value="all">
@@ -129,4 +161,4 @@ if ( isset( $_POST[ 'tnc' ] ) ) {
 	<script src="js/lib/tilt.jquery.js"></script>
 </body>
 
-</html>
+</html> 
